@@ -2,22 +2,32 @@ package com.bean;
 
 import com.bean.service.HelloWorldService;
 import com.spring.learning.BeanDefinition;
-import com.spring.learning.BeanFactory;
+import com.spring.learning.factory.AutowireCapableBeanFactory;
+import com.spring.learning.factory.BeanFactory;
 
 public class BeanTest {
 	public static void main(String[] args) {
 
 		/**
-		 * 定义hello service这个bean
+		 * 初始化Bean工厂
 		 */
-		BeanDefinition beanDefinition = new BeanDefinition(new HelloWorldService());
+		BeanFactory beanFactory = new AutowireCapableBeanFactory();
 
-		BeanFactory factory = new BeanFactory();
-		factory.registerBeanDefinition("helloWorld", beanDefinition);
+		/**
+		 * 定义bean
+		 */
+		BeanDefinition beanDefinition = new BeanDefinition();
+		beanDefinition.setBeanClassName("com.bean.service.HelloWorldService");
 
-		HelloWorldService helloWorld = (HelloWorldService) factory.getBean("helloWorld");
+		/**
+		 * zhurubean
+		 */
+		beanFactory.registerBeanDefinition("helloWorld", beanDefinition);
+
+		/**
+		 * 使用Bean
+		 */
+		HelloWorldService helloWorld = (HelloWorldService) beanFactory.getBean("helloWorld");
 		helloWorld.say("diy spring");
-
-
 	}
 }

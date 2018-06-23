@@ -1,9 +1,11 @@
-package com.spring.learning;
+package com.spring.learning.factory;
+
+import com.spring.learning.BeanDefinition;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class BeanFactory {
+public abstract class AbstractBeanFactory implements BeanFactory {
 
 	/**
 	 * 存储bean的map
@@ -15,7 +17,15 @@ public class BeanFactory {
 	}
 
 	public void registerBeanDefinition(String name, BeanDefinition beanDefinition) {
+		Object bean = doCreateBean(beanDefinition);
+		beanDefinition.setBean(bean);
 		beanDefinitionMap.put(name, beanDefinition);
 	}
 
+	/**
+	 * 创石化Bean
+	 * @param beanDefinition
+	 * @return
+	 */
+	protected abstract Object doCreateBean(BeanDefinition beanDefinition);
 }
