@@ -1,7 +1,7 @@
 # spring-learn-quick
 
 
-## step-2-abstract-beanfactory-and-do-bean-initilizing-in-it
+## step-4-config-beanfactory-with-xml
 
-将创建bean的方式暴露出去
+spring 如何将xml里配置的bean加载到容器内，并初始化
 

@@ -1,4 +1,7 @@
 package com.spring.learning;
 
-public class BeanDefinitionReader {
+import java.net.MalformedURLException;
+
+public interface BeanDefinitionReader {
+	void loadBeanDefinitions(String location) throws Exception;
 }
