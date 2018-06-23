@@ -1,7 +1,7 @@
 # spring-learn-quick
 
 
-## step-4-config-beanfactory-with-xml
+## step-5-inject-bean-to-bean
 
-spring 如何将xml里配置的bean加载到容器内，并初始化
+这个是接着第四部解析xml并处理bean之间的引用，比较简单
 
