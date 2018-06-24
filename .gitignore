@@ -7,7 +7,7 @@
 # BlueJ files
 *.ctxt
 .idea
-target
+target/
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
