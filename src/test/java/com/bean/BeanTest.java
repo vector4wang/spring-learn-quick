@@ -1,7 +1,6 @@
 package com.bean;
 
 import com.bean.service.HelloWorldService;
-import com.bean.service.TwoService;
 import com.spring.learning.BeanDefinition;
 import com.spring.learning.factory.AutowireCapableBeanFactory;
 import com.spring.learning.factory.BeanFactory;
@@ -29,7 +28,5 @@ public class BeanTest {
 		HelloWorldService helloWorld = (HelloWorldService) beanFactory.getBean("helloWorldService");
 		helloWorld.say();
 
-		TwoService twoService = (TwoService) beanFactory.getBean("twoService");
-		twoService.two();
 	}
 }
