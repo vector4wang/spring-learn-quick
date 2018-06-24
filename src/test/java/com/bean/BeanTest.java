@@ -1,35 +1,14 @@
 package com.bean;
 
-import com.bean.service.HelloWorldService;
 import com.bean.service.TwoService;
-import com.spring.learning.BeanDefinition;
-import com.spring.learning.factory.AutowireCapableBeanFactory;
-import com.spring.learning.factory.BeanFactory;
-import com.spring.learning.io.ResourceLoader;
-import com.spring.learning.xml.XmlBeanDefinitionReader;
-
-import java.util.Map;
+import com.spring.learning.context.ApplicationContext;
+import com.spring.learning.context.ClassPathXmlApplicationContext;
 
 public class BeanTest {
 	public static void main(String[] args) throws Exception {
 
-		XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(new ResourceLoader());
-
-		xmlBeanDefinitionReader.loadBeanDefinitions("spring-diy.xml");
-
-		BeanFactory beanFactory = new AutowireCapableBeanFactory();
-		for (Map.Entry<String, BeanDefinition> beanDefinitionEntry : xmlBeanDefinitionReader.getRegistry()
-				.entrySet()) {
-			beanFactory.registerBeanDefinition(beanDefinitionEntry.getKey(), beanDefinitionEntry.getValue());
-		}
-
-		/**
-		 * 使用Bean
-		 */
-		HelloWorldService helloWorld = (HelloWorldService) beanFactory.getBean("helloWorldService");
-		helloWorld.say();
-
-		TwoService twoService = (TwoService) beanFactory.getBean("twoService");
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring-diy.xml");
+		TwoService twoService = (TwoService) applicationContext.getBean("twoService");
 		twoService.two();
 	}
 }
