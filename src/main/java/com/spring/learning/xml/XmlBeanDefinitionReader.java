@@ -2,6 +2,7 @@ package com.spring.learning.xml;
 
 import com.spring.learning.AbstractBeanDefinitionReader;
 import com.spring.learning.BeanDefinition;
+import com.spring.learning.BeanReference;
 import com.spring.learning.PropertyValue;
 import com.spring.learning.io.ResourceLoader;
 import org.w3c.dom.Document;
@@ -67,7 +68,18 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 				Element element = (Element) item;
 				String name = element.getAttribute("name");
 				String value = element.getAttribute("value");
-				beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(name, value));
+				if (value != null && value.length() > 0) {
+					beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(name, value));
+				} else {
+					String ref = element.getAttribute("ref");
+					if (ref == null || ref.length() == 0) {
+						throw new IllegalArgumentException(
+								"Configuration problem: <property> element for property '" + name
+										+ "' must specify a ref or value");
+					}
+					BeanReference beanReference = new BeanReference(name);
+					beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(name, beanReference));
+				}
 			}
 		}
 	}
