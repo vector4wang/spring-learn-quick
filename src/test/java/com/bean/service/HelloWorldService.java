@@ -1,22 +1,11 @@
 package com.bean.service;
 
-public class HelloWorldService {
+public interface HelloWorldService {
 
-	private String str;
+	public void say();
 
-	public void setStr(String str) {
-		this.str = str;
-	}
+	public void setStr(String str);
 
-	public String getStr() {
-		return str;
-	}
-
-	public void say() {
-		System.out.println("hello " + str);
-	}
-
-
-
+	public String getStr();
 
 }
