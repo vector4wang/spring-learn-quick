@@ -23,7 +23,7 @@ public abstract class AbstractBeanFactory implements BeanFactory {
 	}
 
 	/**
-	 * 创石化Bean
+	 * 初始化Bean
 	 * @param beanDefinition
 	 * @return
 	 */
