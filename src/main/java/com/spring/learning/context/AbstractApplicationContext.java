@@ -1,6 +1,5 @@
 package com.spring.learning.context;
 
-import com.spring.learning.BeanDefinition;
 import com.spring.learning.factory.AbstractBeanFactory;
 
 public class AbstractApplicationContext implements ApplicationContext {
