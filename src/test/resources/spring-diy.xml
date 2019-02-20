@@ -12,7 +12,7 @@
         <property name="helloWorldService" ref="helloWorldService"></property>
     </bean>
 
-    <bean name="helloWorldService" class="com.bean.service.HelloWorldService">
+    <bean name="helloWorldService" class="com.bean.service.HelloWorldServiceImpl">
         <!--需要setter方法-->
         <property name="str" value="Hello World!"></property>
     </bean>
